@@ -211,7 +211,9 @@
                         wTime:a,
                     },
                     success:function (result) {
+                        alert(result.data.wTarget);
                         if(result.errcode==1){
+                            $("#weekly1_1_content").show()
                             //每次点击日期后清空
                             $("#aa1").empty();
                             $("#aa2").empty();
@@ -223,9 +225,9 @@
                                 //在指定问题后输出周报内容
                                     $("#aa1").append(result.data.wSummary),
                                     $("#aa2").append(result.data.wChallenge),
-                                    $("#aa3").append(result.data.wTarget),
+                                    $("#aa3").text(result.data.wTarget),
                                     $("#aa4").append(result.data.wMethod),
-                                $("#who1_1").append(result.page.uName),
+                                    $("#who1_1").append(result.page.uName),
                                     $("#when1_1").append(dateFormat(result.data.wTime));
                             }
                         }else{
